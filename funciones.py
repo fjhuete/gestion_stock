@@ -1,9 +1,8 @@
-import datetime
+import datetime, os
 from pymongo.mongo_client import MongoClient
 from bson import ObjectId
 
-#uri = os.getenv("uri")
-uri = "mongodb+srv://usuario:usuario@proyectomongodb.fpedozi.mongodb.net/?retryWrites=true&w=majority&appName=ProyectoMongoDB"
+uri = os.getenv("uri")
 
 cliente = MongoClient(uri)
 db = cliente.LaComedia
@@ -14,9 +13,8 @@ pedidos = db.Pedidos
 def probarconexion():
     try:
         cliente.admin.command('ping')
-        print("\nConexión exitosa a la base de datos.\nPuede comenzar a usar el programa.")
     except Exception as e:
-        print(e)
+        print(f"Error en la conexión: {e}")
 
 def cerrarcliente():
     cliente.close()
