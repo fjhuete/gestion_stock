@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Añadir producto{% endblock %}
+{% block content %}
+<section class="contenido bg-light">
+    <div class="container">
+        <div class="contenido-content">
+            <h1 class="contenido-heading text-xxl">
+            Añadir un producto
+            </h1>
+            <p class="contenido-text">
+            Rellena la siguiente información para añadir un nuevo producto a la base de datos.
+            </p>
+            <form action="/nuevoproducto" method="post">
+                <label for="nombre">Nombre</label>
+                <input id="nombre" name="nombre" type="text" placeholder="Nombre">
+                <label for="precio">Precio</label>
+                <input id="precio" name="precio" type="text" placeholder="Precio">
+                <label for="stock">Stock actual</label>
+                <input id="stock" name="stock" type="text" placeholder="Stock actual">
+                <label for="umbral">Umbral de pedido</label>
+                <input id="umbral" name="umbral" type="text" placeholder="Umbral de pedido">
+                <label for="categoria">Categoría</label>
+                <select id="categoria" name="categoria">
+                    <option value="Whisky">Whisky</option>
+                    <option value="Whisky">Vodka</option>
+                </select>
+                <button type="submit" class="btn btn-primary">Añadir producto</button>
+            </form>
+            <a class="btn btn-dark" href="/productos">Cancelar</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

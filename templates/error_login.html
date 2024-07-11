@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+<section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-heading text-xxl">
+            Inicio de sesión
+          </h1>
+          <p class="hero-text">
+            Usuario o contraseña incorrecto. Inténtalo de nuevo
+          </p>
+            <form action="/" method="post">
+                <label for="usuario">Usuario</label>
+                <input id="usuario" name="usuario" type="text" placeholder="Usuario">
+                <label for="usuario">Contraseña</label>
+                <input id="passwd" name="passwd" type="password" placeholder="Contraseña">
+                <button type="submit" class="btn btn-primary">Entrar</button>
+            </form>
+        </div>
+      </div>
+</section>
+{% endblock %}

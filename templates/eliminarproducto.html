@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Eliminar producto{% endblock %}
+{% block content %}
+<section class="contenido bg-light">
+    <div class="container">
+        <div class="contenido-content">
+            <h1 class="contenido-heading text-xxl">
+            Eliminar un producto
+            </h1>
+            <p class="contenido-text">
+            Busca el nombre del producto que quieras eliminar en la lista desplegable.
+            </p>
+            <form action="/eliminarproducto" method="post">
+                <label for="producto">Productos</label>
+                <select id="producto" name="producto">
+                    {% for producto in productos %}
+                    <option value={{producto._id}}>{{producto.Nombre}}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit" class="btn btn-primary">Eliminar producto</button>
+            </form>
+            <a class="btn btn-dark" href="/productos">Cancelar</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

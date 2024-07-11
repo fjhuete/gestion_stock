@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Venta añadida con éxito{% endblock %}
+{% block content %}
+<section class="contenido bg-light">
+    <div class="container">
+        <div class="contenido-content">
+            <h1 class="contenido-heading text-xxl">
+            Venta añadida con éxito
+            </h1>
+                <p class="contenido-text" class="text-xl">Esta venta ha quedado registrada.</p>
+                <table>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                    </tr>
+                    {% for producto in venta %}
+                    <tr>
+                        <td>{{producto.Nombre}}</td>
+                        <td class="center">{{producto.Cantidad}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <a href="/inicio" class="btn btn-dark">Volver al inicio</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

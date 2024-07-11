@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Administrar productos{% endblock %}
+{% block content %}
+<section class="menu bg-light">
+    <div class="container">
+        <h3 class="menu-heading text-xxl">
+        Administrar productos
+        </h3>
+        <p>
+        Desde esta página puedes administrar los productos registrados en la base de datos. Las modificaciones realizadas sobre la base de datos a través de estas opciones son irreversibles.
+        </p>
+        <br>
+        <div class="menu-grid">
+            <div class="card">
+                <h4>Añadir producto</h4>
+                <p>
+                Añade un nuevo producto a la lista con este formulario.
+                </p>
+                <a class="btn btn-primary" href="/nuevoproducto">Añadir producto</a>
+            </div>
+            <div class="card">
+                <h4>Modificar producto</h4>
+                <p>
+                Modifica el stock, umbral o precio de un producto existente.
+                </p>
+                <a class="btn btn-primary" href="/actualizarproducto">Actualizar producto</a>
+            </div>
+            <div class="card">
+                <h4>Eliminar producto</h4>
+                <p>
+                Elimina un producto de la lista. Esta acción es irreversible.
+                </p>
+                <a class="btn btn-dark" href="/eliminarproducto">Eliminar producto</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

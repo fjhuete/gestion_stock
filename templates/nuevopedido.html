@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Añadir pedido{% endblock %}
+{% block content %}
+<section class="contenido bg-light">
+    <div class="container">
+        <div class="contenido-content">
+            <h1 class="contenido-heading text-xxl">
+            Rellenar un pedido
+            </h1>
+            {% if productos %}
+            <p class="contenido-text">
+            Utiliza este formulario para rellenar un nuevo pedido y crear una lista de la compra.
+            </p>
+            <form action="/nuevopedido" method="post">
+                {% for producto in productos %}
+                <label for="{{producto.Nombre}}">{{producto.Nombre}}</label>
+                <input id="{{producto.Nombre}}" name="{{producto.Nombre}}" type="text" value="0">
+                {% endfor %}
+                <button type="submit" class="btn btn-primary">Añadir</button>
+                <a href="/inicio" class="btn btn-dark">Cancelar</a>
+            </form>
+            {% elif pedido %}
+            <p class="contenido-text" class="text-xl">¿Quieres confirmar este registro de pedido? </p>
+                <table>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                    </tr>
+                    {% for producto in pedido %}
+                    <tr>
+                        <td>{{producto.Nombre}}</td>
+                        <td class="center">{{producto.Cantidad}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <a href="/pedido" class="btn btn-primary">Confirmar</a>
+                <a href="/inicio" class="btn btn-dark">Cancelar</a>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}

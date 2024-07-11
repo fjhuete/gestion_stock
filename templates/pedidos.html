@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Pedidos pendientes{% endblock %}
+{% block content %}
+<section class="contenido bg-light">
+    <div class="container">
+        <div class="contenido-content">
+            {% if resultado == 0 %}
+            <h1 class="contenido-heading text-xxl">
+            Pedido marcado como recibido
+            </h1>
+            <p class="contenido-text">
+            El pedido se ha marcado como recibido con éxito.
+            </p>
+            <a href="/inicio" class="btn btn-primary">Volver al inicio</a>
+            {% elif resultado == 1%}
+            <h1 class="contenido-heading text-xxl">
+            Pedido no marcado como recibido
+            </h1>
+            <p class="contenido-text">
+            El pedido no se ha podido marcar como recibido. Inténtalo de nuevo o ponte en contacto con el administrador de la base de datos.
+            </p>
+            <a href="/inicio" class="btn btn-primary">Volver al inicio</a>
+            {% else %}
+            <h1 class="contenido-heading text-xxl">
+            Pedidos pendientes
+            </h1>
+            <p class="contenido-text">
+            Estos pedidos aún no se han marcado como recibidos.
+            </p>
+            {% for pedido in pedidos%}
+            <form action="/pedidos" method="post">
+            <h4>Fecha del pedido: {{pedido.Fecha}}</h4>
+                <table>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                    </tr>
+                    {% for producto in pedido.Productos %}
+                    <tr>
+                        <td>{{producto.Nombre}}</td>
+                        <td class="center">{{producto.Cantidad}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <input name="_id" type="hidden" value="{{pedido._id}}">
+                <button type="submit" class="btn btn-primary">Marcar como recibido</button>
+                <a href="/inicio" class="btn btn-primary">Cancelar</a>
+            </form>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}

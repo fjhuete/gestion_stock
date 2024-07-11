@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Menú{% endblock %}
+{% block content %}
+<section class="menu bg-light">
+    <div class="container">
+        <h3 class="menu-heading text-xxl">
+        Esto es lo que puedes hacer:
+        </h3>
+        <div class="menu-grid">
+            <div class="card">
+                <h4>Añadir una venta o un pedido</h4>
+                <p>
+                Añadir una venta actualiza automáticamente el stock.
+                </p>
+                <a class="btn btn-primary" href="/nuevaventa">Añadir venta</a>
+                <a class="btn btn-primary" href="/nuevopedido">Rellenar pedido</a>
+            </div>
+            <div class="card">
+                <h4>Ver los pedidos pendientes</h4>
+                <p>
+                Accede a todos los pedidos guardados que aún no se han marcado como recibidos. Desde aquí podrás revisar su contenido y marcarlos como recibido.
+                </p>
+                <a class="btn btn-primary" href="/pedidos">Ver pedidos pendientes</a>
+            </div>
+            <div class="card">
+                <h4>Funciones de administración</h4>
+                <p>
+                Administra los productos: añade o elimina productos, modifica manualmente su stock o cambia el umbral de stock que hace que se incluyan en un pedido.
+                </p>
+                <a class="btn btn-light" href="/productos">Administrar productos</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Añadir venta{% endblock %}
+{% block content %}
+<section class="contenido bg-light">
+    <div class="container">
+        <div class="contenido-content">
+            <h1 class="contenido-heading text-xxl">
+            Añadir una venta
+            </h1>
+            {% if productos %}
+            <p class="contenido-text">
+            Utiliza este formulario para añadir los productos vendidos en el día.
+            </p>
+            <form action="/nuevaventa" method="post">
+                {% for producto in productos %}
+                <label for="{{producto.Nombre}}">{{producto.Nombre}}</label>
+                <input id="{{producto.Nombre}}" name="{{producto.Nombre}}" type="text" value="0">
+                {% endfor %}
+                <button type="submit" class="btn btn-primary">Añadir</button>
+                <a href="/inicio" class="btn btn-dark">Cancelar</a>
+            </form>
+            {% elif venta %}
+            <p class="contenido-text" class="text-xl">¿Quieres confirmar este registro de venta? </p>
+                <table>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                    </tr>
+                    {% for producto in venta %}
+                    <tr>
+                        <td>{{producto.Nombre}}</td>
+                        <td class="center">{{producto.Cantidad}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <a href="/venta" class="btn btn-primary">Confirmar</a>
+                <a href="/inicio" class="btn btn-dark">Cancelar</a>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}

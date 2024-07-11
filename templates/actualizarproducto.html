@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Actualizar producto{% endblock %}
+{% block content %}
+<section class="contenido bg-light">
+    <div class="container">
+        <div class="contenido-content">
+            <h1 class="contenido-heading text-xxl">
+            Actualizar un producto
+            </h1>
+            <p class="contenido-text">
+            Rellena la información del producto que quieras actualizar en este formulario.
+            </p>
+            <p class="contenido-text">
+            Se deben rellenar todos los campos aunque no se vayan a modificar.
+            </p>
+            <form action="/actualizarproducto" method="post">
+                <label for="nombre">Nombre</label>
+                <input id="nombre" name="nombre" type="text" placeholder="Nombre" required>
+                <label for="precio">Precio</label>
+                <input id="precio" name="precio" type="text" placeholder="Precio">
+                <label for="stock">Stock actual</label>
+                <input id="stock" name="stock" type="text" placeholder="Stock actual">
+                <label for="umbral">Umbral de pedido</label>
+                <input id="umbral" name="umbral" type="text" placeholder="Umbral de pedido">
+                <label for="categoria">Categoría</label>
+                <select id="categoria" name="categoria">
+                    <option value="Whisky">Whisky</option>
+                    <option value="Whisky">Vodka</option>
+                </select>
+                <button type="submit" class="btn btn-primary">Actualizar producto</button>
+            </form>
+            <a class="btn btn-dark" href="/productos">Cancelar</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Error al guardar el pedido{% endblock %}
+{% block content %}
+<section class="contenido bg-light">
+    <div class="container">
+        <div class="contenido-content">
+            <h1 class="contenido-heading text-xxl">
+            Error al guardar el pedido
+            </h1>
+                <p class="contenido-text" class="text-xl">Este pedido no se ha podido guardar. Vuelve a intentarlo o contacta con el administrador de la base de datos.</p>
+                <table>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                    </tr>
+                    {% for producto in venta %}
+                    <tr>
+                        <td>{{producto.Nombre}}</td>
+                        <td class="center">{{producto.Cantidad}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <a href="/inicio" class="btn btn-primary">Volver al inicio</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
